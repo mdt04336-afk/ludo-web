@@ -40,7 +40,6 @@ export default function Board({ tokens, onTokenClick, safeSpots }: Props) {
       })}
 
       <div className="home-areas">
-        {/* show tokens at home */}
         {[0, 1, 2, 3].map((p) => (
           <div key={p} className="home">
             <div className="home-title">Player {p + 1} home</div>
@@ -55,6 +54,9 @@ export default function Board({ tokens, onTokenClick, safeSpots }: Props) {
                     onClick={() => onTokenClick(t)}
                   />
                 ))}
+            </div>
+            <div className="finished-count">
+              Finished: {tokens.filter((t) => t.player === p && t.finished).length}
             </div>
           </div>
         ))}
